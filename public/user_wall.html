@@ -1,0 +1,26 @@
+  <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <a class="navbar-brand" href="#">Home</a>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div>
+      <input type="text" placeholder="Enter image url" ng-model="url"/>
+      <button type="button" class="btn btn-primary" ng-click="add()">Add Image</button>
+    </div>
+    
+    
+    <div ng-if="images">
+      <div masonry column-width="20">
+        <div class="masonry-brick thumbnail" ng-repeat="image in allUserImages">
+          <img onerror="imgError(this);" ng-src="{{image.image}}">
+          <div class="caption">
+          <button type="button" ng-click="delete(image._id)" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
